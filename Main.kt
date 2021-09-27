@@ -7,11 +7,19 @@ fun main() {
    val Grenoble = City("Grenoble")
    val customer1 = Customer("Tristan",Lyon,command)
    val customer2 = Customer("Customer2",Grenoble,command)
-   val ListCustomer = listOf(customer1,customer2)
+   val customer3 = Customer("Customer3",Lyon,command)
+   val ListCustomer = listOf(customer1,customer2,customer3)
    val shop = Shop("Apple Store",ListCustomer)
    
    shop.getCitiesCustomersAreFrom()
    shop.getCustomersFrom(City("Lyon"))
+   println(shop.checkAllCustomersAreFrom(City("Lyon")))
+   println(shop.hasCustomerFrom(City("Grenoble")))
+   println(shop.hasCustomerFrom(City("Paris")))
+   println(shop.countCustomersFrom(City("Paris")))
+   println(shop.countCustomersFrom(City("Lyon")))
+   println(shop.findAnyCustomerFrom(City("Lyon")))
+   println(shop.findAnyCustomerFrom(City("Paris")))
       }
    
       data class Shop(val name: String, val customers: List<Customer>){
@@ -25,6 +33,15 @@ fun main() {
                println(it.name)
           }
          }
+         fun checkAllCustomersAreFrom(city: City) : Boolean = customers.all{it.city != city}
+   
+         fun hasCustomerFrom(city: City) : Boolean = customers.any{it.city == city}
+         
+         fun countCustomersFrom(city: City) : Int = customers.count{it.city == city}
+         
+         fun findAnyCustomerFrom(city: City) : Customer? = customers.find{it.city == city}
+   
+   
       }
    
       data class Customer(val name: String, val city: City, val orders: List<Order>) {
