@@ -1,5 +1,16 @@
 fun main() {
-   print(start())
+   var str = listOf("a","b","c")
+   print(joinOption(str))
 }
 
-fun start() : String = "OK"
+fun joinToString(
+   separator: String =", ",
+   prefix: String ="",
+   postfix: String = ""
+): String
+{
+   return ""
+}
+
+fun joinOption(options: Collection<String>)=
+   options.joinToString(prefix="[",separator=",",postfix="]")
