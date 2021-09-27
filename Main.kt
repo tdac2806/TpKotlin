@@ -1,16 +1,6 @@
 fun main() {
-   var str = listOf("a","b","c")
-   print(joinOption(str))
-}
-
-fun joinToString(
-   separator: String =", ",
-   prefix: String ="",
-   postfix: String = ""
-): String
-{
-   return ""
-}
-
-fun joinOption(options: Collection<String>)=
-   options.joinToString(prefix="[",separator=",",postfix="]")
+   val test = Person("Tristan",21) 
+   print("Nom : ${test.name}\nAge : ${test.age}")
+   }
+   
+   class Person(val name : String, val age : Int)
